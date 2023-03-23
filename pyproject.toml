@@ -8,8 +8,6 @@ packages = [{include = "image_stacking_poc"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pytest = "^7.1.1"
-aws-cdk-lib = "2.59.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
