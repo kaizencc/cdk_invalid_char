@@ -21,7 +21,7 @@ jobs:
           installer-parallel: true
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-root --with dev --with deploy
+          poetry run pip install aws_cdk_lib==2.59.0 pytest
       - name: Run tests
         run: |
           echo $'import aws_cdk as cdk\ndef test_thing():\n assert True' > foo.py
