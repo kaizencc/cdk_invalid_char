@@ -1,6 +1,7 @@
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test-deploy:
@@ -22,8 +23,8 @@ jobs:
           installer-parallel: true
       - name: Install dependencies
         run: |
-          poetry run pip install aws_cdk_lib==2.59.0 pytest
+          poetry install --no-interaction --no-root
       - name: Run tests
         run: |
           echo $'import aws_cdk as cdk\ndef test_thing():\n assert True' > foo.py
-          poetry run pytest foo.py
+          poetry run pytest -W error foo.py
