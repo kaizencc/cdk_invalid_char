@@ -13,3 +13,12 @@ python = "^3.10"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    'ignore:The `Row.keys\(\)` method is deprecated to mimic SQLAlchemy behaviour:DeprecationWarning',
+    'ignore:distutils Version classes are deprecated. Use packaging\.version instead\.:DeprecationWarning',
+    'ignore:There is no current event loop:DeprecationWarning',
+]
